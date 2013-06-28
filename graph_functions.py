@@ -1,5 +1,56 @@
 import networkx as nx
 import numpy as np
+from random import choice
+
+def remove_random_nodes(graph, n):
+    '''
+    Randomly removes n nodes from the graph.
+
+    ------
+    Inputs
+    ------
+    graph = networkx graph
+    n = number of nodes to be removed
+    
+    ------
+    Output
+    ------
+    new_graph = networkx graph
+    '''
+    node_list = graph.nodes()
+
+    while n > 0:
+        rnode = choice(node_list)
+        graph.remove_node(rnode)
+        node_list.remove(rnode)
+        n = n - 1
+    
+    return graph
+
+def remove_random_edges(graph, n):
+    '''
+    Randomly removes n edges from the graph.
+
+    ------
+    Inputs
+    ------
+    graph = networkx graph
+    n = number of edges to be removed
+    
+    ------
+    Output
+    ------
+    new_graph = networkx graph
+    '''
+    edge_list = graph.edges()
+
+    while n > 0:
+        redge = choice(edge_list)
+        graph.remove_edge(redge[0],redge[1])
+        edge_list.remove(redge)
+        n = n - 1
+    
+    return graph
 
 def within_module_degree(graph, partition):
     '''
@@ -8,14 +59,12 @@ def within_module_degree(graph, partition):
     ------
     Inputs
     ------
-
-    graph = sparse networkx graph
+    graph = networkx graph
     partition = modularity partition of graph
 
     ------
     Output
     ------
-    
     wd_dict: Dictionary of the within-module degree of each node.
 
     '''
@@ -43,14 +92,12 @@ def participation_coefficient(graph, partition):
     ------
     Inputs
     ------
-
-    graph = sparse networkx graph
+    graph = networkx graph
     partition = modularity partition of graph
 
     ------
     Output
     ------
-    
     List of the participation coefficient for each node.
 
     '''
