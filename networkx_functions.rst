@@ -2,6 +2,52 @@
 Available Networkx Functions
 ============================
 
+-----------------
+Generating Graphs
+-----------------
+
+complete_graph(n)::
+  
+  Returns a complete graph of n nodes.
+
+connected_watts_strogatz_graph(n, k, p)::
+  
+  Returns a connected Watts-Strogatz small-world graph of n nodes.
+  Each node is connected to k nearest neighbors in ring topology.
+  There is probability p of rewiring each edge.
+
+gnm_random_graph(n, m)::
+  
+  Returns a random graph of n nodes and m edges.
+
+gnp_random_graph(n, p)::
+  
+  Returns a random graph of n nodes.
+  Edge are randomly selected with probability p.
+
+random_regular_graph(d, n)::
+
+  Returns a random regular graph of n nodes each with degree d.
+  The resulting graph has no self-loops ore parallel edges.
+  (Note: The nodes are numbered from 0 to n-1.
+
+--------------
+Drawing Graphs
+--------------
+
+draw_circular(G)::
+  
+  Draws graph with a circular layout.
+
+draw_spectral(G)::
+  
+  Draws graph with a spectral layout.
+  (Uses eigenvectors of the matrix of a graph as coordinates.)
+
+draw_spring(G)::
+  
+  Draws graph with a spring layout.
+  (Determines positions using force-directed graph drawing.)
 
 ---------------
 Basic Functions

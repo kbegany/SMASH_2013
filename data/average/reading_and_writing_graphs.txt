@@ -1,2 +1,0 @@
-write using nx.write_gpickle(graph,'filename.gpickle')
-read using nx.read_gpickle('filename.gpickle')

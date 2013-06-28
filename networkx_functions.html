@@ -317,6 +317,51 @@ ul.auto-toc {
 <div class="document" id="available-networkx-functions">
 <h1 class="title">Available Networkx Functions</h1>
 
+<div class="section" id="generating-graphs">
+<h1>Generating Graphs</h1>
+<p>complete_graph(n):</p>
+<pre class="literal-block">
+Returns a complete graph of n nodes.
+</pre>
+<p>connected_watts_strogatz_graph(n, k, p):</p>
+<pre class="literal-block">
+Returns a connected Watts-Strogatz small-world graph of n nodes.
+Each node is connected to k nearest neighbors in ring topology.
+There is probability p of rewiring each edge.
+</pre>
+<p>gnm_random_graph(n, m):</p>
+<pre class="literal-block">
+Returns a random graph of n nodes and m edges.
+</pre>
+<p>gnp_random_graph(n, p):</p>
+<pre class="literal-block">
+Returns a random graph of n nodes.
+Edge are randomly selected with probability p.
+</pre>
+<p>random_regular_graph(d, n):</p>
+<pre class="literal-block">
+Returns a random regular graph of n nodes each with degree d.
+The resulting graph has no self-loops ore parallel edges.
+(Note: The nodes are numbered from 0 to n-1.
+</pre>
+</div>
+<div class="section" id="drawing-graphs">
+<h1>Drawing Graphs</h1>
+<p>draw_circular(G):</p>
+<pre class="literal-block">
+Draws graph with a circular layout.
+</pre>
+<p>draw_spectral(G):</p>
+<pre class="literal-block">
+Draws graph with a spectral layout.
+(Uses eigenvectors of the matrix of a graph as coordinates.)
+</pre>
+<p>draw_spring(G):</p>
+<pre class="literal-block">
+Draws graph with a spring layout.
+(Determines positions using force-directed graph drawing.)
+</pre>
+</div>
 <div class="section" id="basic-functions">
 <h1>Basic Functions</h1>
 <p>average_shortest_path_length(G):</p>
