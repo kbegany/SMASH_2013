@@ -1,0 +1,216 @@
+LOG DOCUMENTING HOW NORM FILES WERE GENERATED
+=============================================
+
+
+In [1]: av = np.loadtxt('average_Block01.txt')
+
+In [2]: sd = np.loadtxt('stdev_average_Block01.txt')
+
+In [3]: nm = np.zeros(shape=(90,90))
+
+In [4]: for i in np.arange(90):
+    for j in np.arange(90):
+        try:
+            nm[i,j] = av[i,j]/sd[i,j]
+        except:
+            nm[i,j] = 0
+   ...:             
+/usr/local/epd/bin/ipython:4: RuntimeWarning: invalid value encountered in double_scalars
+  import sys
+
+In [5]: shape(nm)
+Out[5]: (90, 90)
+
+In [6]: shape(av)
+Out[6]: (90, 90)
+
+In [7]: shape(sd)
+Out[7]: (90, 90)
+
+In [8]: nm
+Out[8]: 
+array([[        nan,  1.53549728,  0.93943391, ..., -0.11353379,
+         0.47724   ,  0.03222305],
+       [        nan,         nan,  0.04953536, ...,  0.32008883,
+        -0.21311785,  0.22091461],
+       [        nan,         nan,         nan, ..., -0.02954498,
+         0.80480271,  0.1341011 ],
+       ..., 
+       [        nan,         nan,         nan, ...,         nan,
+         0.61982338,  0.97671882],
+       [        nan,         nan,         nan, ...,         nan,
+                nan,  1.37294513],
+       [        nan,         nan,         nan, ...,         nan,
+                nan,         nan]])
+
+In [9]: for i in np.arange(90):
+    for j in np.arange(90):
+        try:
+            nm[i,j] = av[i,j]/sd[i,j]
+        except:
+            nm[i,j] = 0
+   ...:             
+
+In [10]: ls
+average_Block01_cost0.15.txt    norm_average_Block01_cost0.15.txt    stdev_average_Block01.txt
+average_Block01.txt             norm_average_Block01.txt
+average_graph_cost0.15.gpickle  norm_average_graph_cost0.15.gpickle
+
+In [11]: nm
+Out[11]: 
+array([[        nan,  1.53549728,  0.93943391, ..., -0.11353379,
+         0.47724   ,  0.03222305],
+       [        nan,         nan,  0.04953536, ...,  0.32008883,
+        -0.21311785,  0.22091461],
+       [        nan,         nan,         nan, ..., -0.02954498,
+         0.80480271,  0.1341011 ],
+       ..., 
+       [        nan,         nan,         nan, ...,         nan,
+         0.61982338,  0.97671882],
+       [        nan,         nan,         nan, ...,         nan,
+                nan,  1.37294513],
+       [        nan,         nan,         nan, ...,         nan,
+                nan,         nan]])
+
+In [12]: for i in np.arange(90):
+    for j in np.arange(90):
+        if np.isnan(nm[i,j]):
+            nm[i,j] = 0
+   ....:             
+
+In [13]: nm
+Out[13]: 
+array([[ 0.        ,  1.53549728,  0.93943391, ..., -0.11353379,
+         0.47724   ,  0.03222305],
+       [ 0.        ,  0.        ,  0.04953536, ...,  0.32008883,
+        -0.21311785,  0.22091461],
+       [ 0.        ,  0.        ,  0.        , ..., -0.02954498,
+         0.80480271,  0.1341011 ],
+       ..., 
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.61982338,  0.97671882],
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.        ,  1.37294513],
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.        ,  0.        ]])
+
+In [14]: av
+Out[14]: 
+array([[ 0.        ,  0.46598472,  0.25069124, ..., -0.0367578 ,
+         0.15033303,  0.01112723],
+       [ 0.        ,  0.        ,  0.01641444, ...,  0.0934101 ,
+        -0.07585539,  0.07093573],
+       [ 0.        ,  0.        ,  0.        , ..., -0.00805194,
+         0.21975036,  0.04331027],
+       ..., 
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.17225838,  0.25003308],
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.        ,  0.38572584],
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.        ,  0.        ]])
+
+In [15]: nm.sum()
+Out[15]: 1280.644937296777
+
+In [16]: for i in np.arange(90):
+    for j in np.arange(90):
+        try:
+            nm[i,j] = nm[i,j]/1280.644937296777
+        except:
+            nm[i,j] = 0
+   ....:             
+
+In [17]: nm
+Out[17]: 
+array([[  0.00000000e+00,   1.19900313e-03,   7.33563128e-04, ...,
+         -8.86536049e-05,   3.72655985e-04,   2.51615762e-05],
+       [  0.00000000e+00,   0.00000000e+00,   3.86800122e-05, ...,
+          2.49943466e-04,  -1.66414468e-04,   1.72502625e-04],
+       [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+         -2.30703923e-05,   6.28435479e-04,   1.04713721e-04],
+       ..., 
+       [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+          0.00000000e+00,   4.83993150e-04,   7.62677294e-04],
+       [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+          0.00000000e+00,   0.00000000e+00,   1.07207321e-03],
+       [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+          0.00000000e+00,   0.00000000e+00,   0.00000000e+00]])
+
+In [18]: import networkx as nx
+
+In [19]: np.savetxt('norm_average_Block01.txt',nm)
+
+KeyboardInterrupt
+
+In [19]: ls
+average_Block01_cost0.15.txt    norm_average_Block01_cost0.15.txt    stdev_average_Block01.txt
+average_Block01.txt             norm_average_Block01.txt
+average_graph_cost0.15.gpickle  norm_average_graph_cost0.15.gpickle
+
+In [20]: rm norm*
+rm: remove regular file `norm_average_Block01_cost0.15.txt'? y
+rm: remove regular file `norm_average_Block01.txt'? y
+rm: remove regular file `norm_average_graph_cost0.15.gpickle'? y
+
+In [21]: np.savetxt('norm_average_Block01.txt',nm)
+
+In [22]: nm = nm.flatten()
+
+In [23]: lnm = list(nm)
+
+In [24]: lnm.sort()
+
+In [25]: lnm[8100-594]
+Out[25]: 0.00060238293671466422
+
+In [26]: thr_nm = np.zeros(8100)
+
+In [27]: for i in np.arange(8100):
+    if nm[i] < 0.00060238293671466422:
+  ls      thr_nm[i] = 0
+    else:
+        thr_nm[i] = 1
+
+KeyboardInterrupt
+
+In [27]: ls
+average_Block01_cost0.15.txt  average_graph_cost0.15.gpickle  stdev_average_Block01.txt
+average_Block01.txt           norm_average_Block01.txt
+
+In [28]: pwd
+Out[28]: u'/home/despo/kbegany/SMASH/resting_networks/data/old_average'
+
+In [29]: for i in np.arange(8100):
+    if nm[i] < 0.00060238293671466422:
+        thr_nm[i] = 0
+    else:
+        thr_nm[i] = 1
+   ....:         
+
+In [30]: thr_nm = thr_nm.reshape(90,90)
+
+In [31]: np.savetxt('norm_average_Block01_cost0.15.txt',thr_nm)
+
+In [32]: ls
+average_Block01_cost0.15.txt  average_graph_cost0.15.gpickle     norm_average_Block01.txt
+average_Block01.txt           norm_average_Block01_cost0.15.txt  stdev_average_Block01.txt
+
+In [33]: g = nx.Graph()
+
+In [34]: for i in np.arange(90):
+    for j in np.arange(90):
+        if thr_nm[i,j] == 1:
+            g.add_edge(i,j)
+   ....:             
+
+In [35]: shape(g.edges())
+Out[35]: (594, 2)
+
+In [36]: nx.write_gpickle(g,'
+Display all 1284 possibilities? (y or n)
+
+In [36]: nx.write_gpickle(g,'
+Display all 1284 possibilities? (y or n)
+
+In [36]: nx.write_gpickle(g,'norm_average_graph_cost0.15.gpickle')
